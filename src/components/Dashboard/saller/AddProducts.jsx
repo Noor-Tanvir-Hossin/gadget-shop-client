@@ -22,7 +22,7 @@ const AddProducts = () => {
 
         const title= data.title
         const brand= data.brand 
-        const imageURL= data.imageURL
+        const image= data.image
         const price= parseFloat(data.price) 
         const stock= parseFloat(data.stock) 
         const category= data.category 
@@ -30,7 +30,7 @@ const AddProducts = () => {
         const sallerEmail= user.email
         
         const product ={
-            title, brand, price, stock, category, description, sallerEmail,imageURL
+            title, brand, price, stock, category, description, sallerEmail,image
         }
         
         const token= localStorage.getItem("access-token")
