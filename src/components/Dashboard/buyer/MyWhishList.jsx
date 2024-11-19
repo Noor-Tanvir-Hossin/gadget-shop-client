@@ -7,6 +7,7 @@ const MyWhishList = () => {
 
     const [whishlist, setWhishlist] = useState([])
     const [loading, setLoding] = useState(false)
+    const [latestWhish, setLatestWhish] = useState(true)
     // const [nWhishList, setInWhishList] = useState(true)
     const userData = useUserData()
     const token = localStorage.getItem("access-token")
@@ -25,7 +26,7 @@ const MyWhishList = () => {
         if (userData._id && token) {
             fetchWhishlist()
         }
-    }, [token, userData._id])
+    }, [token, userData._id, latestWhish])
 
 
 
@@ -47,7 +48,7 @@ const MyWhishList = () => {
                                     whishlist.length > 0 ? (
                                         whishlist.map((product) => (
                                             <div className='grid grid-cols-3 gap-2 w-full' key={product._id}  >
-                                                <Product productt={product} isInWhishlist></Product>
+                                                <Product productt={product} isInWhishlist setLatestWhish={setLatestWhish} latestWhish={latestWhish}></Product>
                                             </div>
                                         ))
                                     ) : (<div className='w-full h-full flex items-center justify-center'>

@@ -3,7 +3,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 
-const Product = ({ productt, isInWhishlist }) => {
+const Product = ({ productt, isInWhishlist, latestWhish, setLatestWhish }) => {
     console.log(isInWhishlist);
     const userData = useUserData()
     const userEmail= userData.email
@@ -25,6 +25,25 @@ const Product = ({ productt, isInWhishlist }) => {
                     timer: 1500
                   });
             }
+        }
+        
+    )
+    }
+    const handleRemoveWhishlist = async() =>{
+        await axios.patch("http://localhost:5000/wishlist/remove",{
+            userEmail: userEmail, productId: productt._id
+        })
+        .then((res) => {
+            if(res.data.modifiedCount){
+                Swal.fire({
+                    position: "success",
+                    icon: "success",
+                    title: "Product removed from your whishlist",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+            setLatestWhish((prev)=> !prev)
         }
         
     )
@@ -55,7 +74,7 @@ const Product = ({ productt, isInWhishlist }) => {
                     <div className="mt-4">
                        {
                         isInWhishlist? (
-                            <button className="btn w-full btn-sm btn-warning" >Remove from whishList</button>
+                            <button className="btn w-full btn-sm btn-warning" onClick={handleRemoveWhishlist} >Remove from whishList</button>
                         ) : (
                             <button className="btn w-full  btn-sm btn-primary" onClick={handleWhishlist}>Add to whishList</button>
                         )
