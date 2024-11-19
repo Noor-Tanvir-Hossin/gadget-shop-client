@@ -16,6 +16,14 @@ const sellerRoutes = [
         title: 'Add Products'
     },
 ];
+const buyerRoutes = [
+    {
+        id:1,
+        route:'/dashboard/whishlist',
+        title: 'My Whishlist'
+    },
+   
+];
 
 const Sidebar = () => {
     const data = useUserData();
@@ -31,6 +39,13 @@ const Sidebar = () => {
                 
             {
                 data.role === "Saller" && sellerRoutes.map((r) => (
+                    <li key={r.id} className='p2 border border-black rounded-md'>
+                    <NavLink to={r.route}>{r.title}</NavLink>
+                </li>
+                ))
+            }
+            {
+                data.role === "Buyer" && buyerRoutes.map((r) => (
                     <li key={r.id} className='p2 border border-black rounded-md'>
                     <NavLink to={r.route}>{r.title}</NavLink>
                 </li>

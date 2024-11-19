@@ -3,7 +3,8 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 
-const Product = ({ productt }) => {
+const Product = ({ productt, isInWhishlist }) => {
+    console.log(isInWhishlist);
     const userData = useUserData()
     const userEmail= userData.email
     // console.log(userEmail);
@@ -52,7 +53,13 @@ const Product = ({ productt }) => {
                     <p className="text-xs mt-2"> {productt?.description} </p>
 
                     <div className="mt-4">
-                        <button className="" onClick={handleWhishlist}>Add to whishList</button>
+                       {
+                        isInWhishlist? (
+                            <button className="btn w-full btn-sm btn-warning" >Remove from whishList</button>
+                        ) : (
+                            <button className="btn w-full  btn-sm btn-primary" onClick={handleWhishlist}>Add to whishList</button>
+                        )
+                       }
                     </div>
                     
                 </div>

@@ -1,10 +1,10 @@
 import React from 'react';
-import {Navigate, useLocation } from 'react-router-dom';
 import useAuth from '../../customHooks/useAuth';
-import useUserData from './../../customHooks/useUserData';
+import {Navigate, useLocation } from 'react-router-dom';
+import useUserData from '../../customHooks/useUserData';
 import Loder from '../../components/Loder';
 
-const SallerRoute = ({children}) => {
+const BuyerRoute = ({children}) => {
     const {user, loading}= useAuth()
     const location= useLocation()
     const userData=useUserData()
@@ -12,11 +12,11 @@ const SallerRoute = ({children}) => {
     if(loading || !userData.role){
         return <Loder/>
     }
-    if(user && userData.role === 'Saller'){
+    if(user && userData.role === 'Buyer'){
         return children;
     }
 
     return <Navigate to="/login" state={{from: location}} replace/>
 };
 
-export default SallerRoute;
+export default BuyerRoute;

@@ -12,6 +12,8 @@ import Overview from "../components/Dashboard/Overview";
 import MyProducts from "../components/Dashboard/saller/MyProducts";
 import AddProducts from "../components/Dashboard/saller/AddProducts";
 import SallerRoute from "./privateRoutes/SallerRoute";
+import BuyerRoute from "./privateRoutes/BuyerRoute";
+import MyWhishList from "../components/Dashboard/buyer/MyWhishList";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +60,12 @@ const router = createBrowserRouter([
         element: <SallerRoute>
           <MyProducts></MyProducts>
         </SallerRoute>
+      },
+      {
+        path: '/dashboard/whishlist',
+        element: <BuyerRoute>
+          <MyWhishList></MyWhishList>
+        </BuyerRoute>
       },
       {
         path: '/dashboard/add-products',
