@@ -34,7 +34,7 @@ const Register = () => {
 
         createUser(data.email, data.password)
         .then (() =>{
-            axios.post('http://localhost:5000/users',userData)
+            axios.post('https://gadget-shop-server-eight.vercel.app/users',userData)
             .then((res) =>{
                 console.log(res.data);
                 if(res.data.insertedId){

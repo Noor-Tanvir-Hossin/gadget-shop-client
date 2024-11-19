@@ -12,7 +12,7 @@ const Product = ({ productt, isInWhishlist, latestWhish, setLatestWhish }) => {
     // console.log(title,brand,price,stock,category,image,description);
 
     const handleWhishlist = async() =>{
-        await axios.patch("http://localhost:5000/wishlist/add",{
+        await axios.patch("https://gadget-shop-server-eight.vercel.app/wishlist/add",{
             userEmail: userEmail, productId: productt._id
         })
         .then((res) => {
@@ -30,7 +30,7 @@ const Product = ({ productt, isInWhishlist, latestWhish, setLatestWhish }) => {
     )
     }
     const handleRemoveWhishlist = async() =>{
-        await axios.patch("http://localhost:5000/wishlist/remove",{
+        await axios.patch("https://gadget-shop-server-eight.vercel.app/wishlist/remove",{
             userEmail: userEmail, productId: productt._id
         })
         .then((res) => {

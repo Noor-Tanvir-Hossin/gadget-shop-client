@@ -22,7 +22,7 @@ const AuthProvier = ({children}) => {
         const unSubscribe= onAuthStateChanged(auth,(currentUser) =>{
             setUser(currentUser)
             if (currentUser){
-                axios.post(`http://localhost:5000/authen`,{
+                axios.post(`https://gadget-shop-server-eight.vercel.app/authen`,{
                     email: currentUser.email
                 })
                 .then((data) =>{

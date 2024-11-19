@@ -16,7 +16,7 @@ const MyWhishList = () => {
     useEffect(() => {
         const fetchWhishlist = async () => {
             setLoding(true)
-            await axios.get(`http://localhost:5000/whishlist/${userData._id}`, {
+            await axios.get(`https://gadget-shop-server-eight.vercel.app/whishlist/${userData._id}`, {
                 headers: {
                     authorization: `Bearer ${token}`
                 }

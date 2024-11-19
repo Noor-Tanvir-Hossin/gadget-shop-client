@@ -27,7 +27,7 @@ const Products = () => {
     useEffect(() => {
         setLoading(true)
         const fetch = async () => {
-            axios.get(`http://localhost:5000/all-product?title=${search}&page=${page}&limit=${9}&sort=${sort}&brand=${brand}&category=${category}`).then((res) => {
+            axios.get(`https://gadget-shop-server-eight.vercel.app/all-product?title=${search}&page=${page}&limit=${9}&sort=${sort}&brand=${brand}&category=${category}`).then((res) => {
                 // console.log(res.data);
                 setProducts(res.data.products)
                 setUniqueBrand(res.data.brands)
