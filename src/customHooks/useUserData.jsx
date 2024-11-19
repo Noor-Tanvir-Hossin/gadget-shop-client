@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import useAuth from './useAuth';
 import axios from 'axios';
 
@@ -11,6 +11,7 @@ const useUserData = () => {
         const fetchUserData = async () => {
             const res = await axios.get(`http://localhost:5000/user/${user.email}`)
             setUserData(res.data)
+            
         };
         if (user?.email && !loading) {
             fetchUserData()
@@ -18,6 +19,7 @@ const useUserData = () => {
     }, [user, loading]);
 
     return userData
+    console.log(userDAta);
 };
 
 export default useUserData;
